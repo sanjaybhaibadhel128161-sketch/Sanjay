@@ -1,0 +1,35 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.Write("Enter a number: ");
+            int num = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter another number: ");
+            int divisor = Convert.ToInt32(Console.ReadLine());
+
+            int result = num / divisor;
+            Console.WriteLine("Result: " + result);
+        }
+        catch (DivideByZeroException)
+        {
+            Console.WriteLine("Error: Division by zero is not allowed.");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Error: Please enter valid numeric values.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Unexpected error: " + ex.Message);
+        }
+        finally
+        {
+            Console.WriteLine("This block always executes.");
+        }
+    }
+}
